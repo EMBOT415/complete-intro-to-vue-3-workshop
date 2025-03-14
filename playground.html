@@ -6,5 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Playground — Complete Intro to Vue 3</title>
   </head>
-  <body></body>
+  <body>
+    <h1>hello front end masters</h1>
+    <div id="app">
+      <p v-if="message.length % 2 === 0">Even: {{ message.toUpperCase() }}</p>
+      <p v-else>Odd: {{ message }}</p>
+      <ul>
+        <li v-for="number in listOfNumbers">{{ number * Math.random() }}</li>
+        <!-- <li>{{ number }}</li> -->
+      </ul>
+      <ul v-for="pastry in listOfPastries">
+        <li>{{pastry.name}}</li>
+        <li>{{pastry.id}}</li>
+        <li>
+          <ul>
+            <li v-for="item in pastry.list">{{item}}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      //vue 3
+      const { createApp } = Vue 
+      // vue 2
+      // new Vue()
+
+      const app = createApp({
+        data() {
+          return {
+            message: 'hello it works',
+            listOfNumbers: [1, 2, 3, 4, 5],
+            listOfPastries: [
+              {name: 1, id: '142f1873-72a3-467b-9fef-379ef27bd05b', list:[1, 2, 3] },{name: 2, id: '22207ab2-8481-486e-98a4-7e28b0d74f9a', list:[1, 2, 3] },{name: 3, id: '3c5846ea-94bd-43b3-9552-448fbc37bf04', list:[1, 2, 3] },{name: 4, id: 'ccf5f37e-27ea-4f6f-a5cc-5672e99e0e61', list:[1, 2, 3] },{name: 5, id: '8c66ffaf-e0bf-4d35-9de1-22f037820123', list:[1, 2, 3] }
+            ]
+          }
+        }
+      })
+      app.mount('#app')
+    </script>
+  </body>
 </html>
+<!-- data is a function that returns an object so that it will revresh -->
